@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "radioscript"
+version = "0.1.0"
+description = "Markdown-driven radio production tool"
+readme = "README.md"
+authors = [
+    {name = "Yann Orlarey", email = "orlarey@gmail.com"}
+]
+license = {text = "MIT"}
+requires-python = ">=3.9"
+dependencies = [
+    "PyYAML>=6.0",
+]
+keywords = ["radio", "podcast", "audio", "production", "markdown", "recording", "tui"]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Sound/Audio :: Editors",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Environment :: Console",
+]
+
+[project.urls]
+Homepage = "https://github.com/orlarey/Radioscript"
+Repository = "https://github.com/orlarey/Radioscript"
+Issues = "https://github.com/orlarey/Radioscript/issues"
+Documentation = "https://github.com/orlarey/Radioscript#readme"
+
+[project.scripts]
+radioscript = "radioscript.cli:main"
+
+[tool.setuptools]
+packages = ["radioscript"]
+
+[tool.setuptools.package-data]
+radioscript = ["templates/script.md", "templates/assets/*"]
