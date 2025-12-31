@@ -235,6 +235,7 @@ class RadioScript:
             crossfade_defaults=self.config.crossfade,
             normalization=self.config.normalization,
             gap=self.config.gap,
+            bitrate=self.config.bitrate,
         )
         
         result = builder.build(

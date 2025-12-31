@@ -17,6 +17,7 @@ class Config:
     """Configuration from frontmatter."""
     title: str = "Untitled"
     output: str = "output.mp3"
+    bitrate: str = "192k"
     normalization: str = "-16 LUFS"
     trim_silence: bool = True
     trim_threshold: str = "1%"
@@ -71,6 +72,7 @@ def parse_frontmatter(content: str) -> tuple[Config, str]:
         config = Config(
             title=data.get('title', Config.title),
             output=data.get('output', Config.output),
+            bitrate=data.get('bitrate', Config.bitrate),
             normalization=data.get('normalization', Config.normalization),
             trim_silence=data.get('trim_silence', Config.trim_silence),
             trim_threshold=data.get('trim_threshold', Config.trim_threshold),

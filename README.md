@@ -1,8 +1,12 @@
 # RadioScript
 
+![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Version](https://img.shields.io/badge/version-0.1.0-orange)
+
 **Markdown-driven radio production**
 
-RadioScript is a command-line tool for producing radio shows from a simple Markdown file. The file describes the show as an alternation of text segments (to be recorded) and audio files (music, jingles, interviews). Once every text segment have been recorded with `radioscript record` the show can be assembled with`radioscript build`.
+RadioScript is a command-line tool for producing radio shows from a simple Markdown file. The file describes the show as an alternation of text segments (to be recorded) and audio files (music, jingles, interviews). Once every text segment has been recorded with `radioscript record` the show can be assembled with `radioscript build`.
 
 ## Concept
 
@@ -19,7 +23,7 @@ Today we're talking about artificial intelligence.
 ```
 
 - **Text** is displayed in a prompter and recorded by the host
-- **Audio links** reference files to insert (music, jingles, interviews)
+- **Audio links** reference files to insert (music, jingles, interviews) - supports all formats supported by FFmpeg (MP3, WAV, FLAC, OGG, etc.)
 - The tool **automatically assembles** everything with crossfades
 
 **Workflow:**
@@ -152,6 +156,7 @@ The `record` mode displays a TUI interface:
 ---
 title: "My Show"
 output: "show.mp3"                # Saved to output/show.mp3
+bitrate: 192k                     # MP3 bitrate (128k, 192k, 256k, 320k)
 normalization: -16 LUFS
 
 trim_silence: true

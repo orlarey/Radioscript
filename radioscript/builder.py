@@ -31,11 +31,13 @@ class Builder:
         crossfade_defaults: Optional[dict] = None,
         normalization: str = "-16 LUFS",
         gap: Optional[float] = None,
+        bitrate: str = "192k",
     ):
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
         self.gap = gap  # if set, use silence gaps instead of crossfades
+        self.bitrate = bitrate
         self.crossfade_defaults = crossfade_defaults or {
             "voice_to_music": 0.1,
             "music_to_voice": 0.1,
@@ -361,9 +363,9 @@ class Builder:
         # Export to final format
         output_path = self.output_dir / output_filename
         print(f"   Exporting to {output_filename}...")
-        
+
         if output_filename.endswith('.mp3'):
-            success = self._export_mp3(merged_file, str(output_path))
+            success = self._export_mp3(merged_file, str(output_path), bitrate=self.bitrate)
         else:
             # Just copy/convert to output format
             subprocess.run([
