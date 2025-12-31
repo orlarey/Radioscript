@@ -47,11 +47,17 @@ sudo port install sox ffmpeg
 
 ### Installing RadioScript
 
-**Installation with pip (recommended):**
+**From PyPI (recommended):**
 
 ```bash
-git clone <repo>
-cd radioscript
+pip install radioscript
+```
+
+**From source (for development):**
+
+```bash
+git clone https://github.com/orlarey/Radioscript.git
+cd Radioscript
 pip install -e .
 ```
 
